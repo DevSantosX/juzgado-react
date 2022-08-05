@@ -1,0 +1,55 @@
+.login {
+  background: url('../Assets/images/background-login.jpg');
+  background-color: #333;
+  background-blend-mode: soft-light;
+  min-height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &-card {
+    width: 1024px;
+    height: 700px;
+    flex-direction: row;
+    background-color: transparent;
+    & .p-card-title {
+      font-size: 2em;
+      color: white;
+    }
+    & .p-card-body {
+      height: 100%;
+    }
+    & .p-card-content {
+      display: flex;
+      align-items: center;
+      min-height: 100%;
+    }
+  }
+  &-title {
+    width: 50%;
+    color: white;
+    h1 {
+      font-size: 3em;
+      text-shadow: 3px 3px 3px #222;
+    }
+  }
+  &-form {
+    width: 350px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    & > :not([hidden]) ~ :not([hidden]) {
+      margin-top: 1.5em;
+      margin-bottom: 0;
+    }
+    & > .field {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &-login {
+      align-self: center;
+      justify-self: center;
+    }
+  }
+}
