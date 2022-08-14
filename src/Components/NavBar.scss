@@ -1,0 +1,14 @@
+.navbar {
+  background-color: #2D2D2D;
+  height: 3em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &-brand {
+    & > h1 {
+      margin-left: 1em;
+      font-size: 1.75em;
+      color: #D2D2D2;
+    }
+  }
+}

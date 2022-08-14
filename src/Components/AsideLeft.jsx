@@ -35,14 +35,14 @@ const AsideLeft = () => {
       items: [
         {
           label: "Formatos",
-          icon: "pi pi-fw pi-file",
+          icon: "pi pi-fw pi-file-pdf",
           command: () => {
             handleSubmit("formats")
           },
         },
         {
           label: "Usuarios",
-          icon: "pi pi-fw pi-plus",
+          icon: "pi pi-fw pi-users",
           command: () => {
             handleSubmit("users")
           },
