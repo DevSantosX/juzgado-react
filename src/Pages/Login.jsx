@@ -55,9 +55,7 @@ const Login = () => {
                 className={errors.username && "p-invalid"}
               />
               {errors.username && (
-                <small className="p-error ">
-                  {errors.username}
-                </small>
+                <small className="p-error ">{errors.username}</small>
               )}
             </div>
             <div className="field">
@@ -70,9 +68,7 @@ const Login = () => {
                 className={errors.password && "p-invalid"}
               />
               {errors.password && (
-                <small className="p-error ">
-                  {errors.password}
-                </small>
+                <small className="p-error ">{errors.password}</small>
               )}
             </div>
             <Button type="submit" label="Iniciar" className="login-form-btn" />

@@ -1,14 +1,14 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 
 const useForm = (initialForm, validateForm) => {
   const [form, setForm] = useState(initialForm);
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
   const [response, setResponse] = useState(null);
+  const [errorsLength, setErrorsLength] = useState(1)
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    console.log(name, value);
     setForm({ ...form, [name]: value });
   };
 
@@ -20,8 +20,7 @@ const useForm = (initialForm, validateForm) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors(validateForm(form));
-    console.log(Object.keys(errors).length);
-    if (Object.keys(errors).length === 0) {
+    if (errorsLength === 0) {
       setLoading(true);
       alert("enviando formulario");
       setLoading(false);
@@ -29,6 +28,12 @@ const useForm = (initialForm, validateForm) => {
       return;
     }
   };
+
+  useEffect(() => {
+    console.log(Object.keys(errors).length)
+    setErrorsLength(Object.keys(errors).length)
+  }, [errors])
+  
 
   return {
     form,

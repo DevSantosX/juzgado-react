@@ -42,14 +42,14 @@
       margin-top: 1.5em;
       margin-bottom: 0;
     }
-    & > .field {
-      display: flex;
-      flex-direction: column;
-    }
-
     &-login {
       align-self: center;
       justify-self: center;
     }
   }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
 }
