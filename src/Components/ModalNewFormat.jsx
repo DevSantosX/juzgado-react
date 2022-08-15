@@ -6,7 +6,7 @@ import { Button } from "primereact/button";
 import { useForm } from "../Hooks/useForm";
 import { Dropdown } from "primereact/dropdown";
 
-const initalForm = {
+const initialForm = {
   nameFormat: "",
   typeFormat: "",
 };
@@ -30,9 +30,19 @@ const validationForm = (form) => {
 };
 
 export default function ModalNewFormat({ modal, onHide }) {
-  const { form, errors, response, handleChange, handleBlur, handleSubmit } =
-    useForm(initalForm, validationForm);
+  const {
+    form,
+    errors,
+    setForm,
+    response,
+    handleChange,
+    handleBlur,
+    handleSubmit,
+  } = useForm(initialForm, validationForm);
 
+  const onResetForm = () => {
+    setForm(initialForm);
+  };
   const renderFooter = () => {
     return (
       <div>
@@ -45,7 +55,10 @@ export default function ModalNewFormat({ modal, onHide }) {
         <Button
           label="Cancelar"
           icon="pi pi-times"
-          onClick={() => onHide()}
+          onClick={() => {
+            onHide();
+            onResetForm();
+          }}
           className="p-button-text"
         />
       </div>
@@ -57,7 +70,7 @@ export default function ModalNewFormat({ modal, onHide }) {
       <Dialog
         header="Nuevo Formato"
         visible={modal}
-        style={{ width: "25vw" }}
+        style={{ width: "400px" }}
         footer={renderFooter()}
         onHide={() => onHide()}
       >

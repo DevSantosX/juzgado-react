@@ -53,6 +53,7 @@ const Login = () => {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 className={errors.username && "p-invalid"}
+                required={true}
               />
               {errors.username && (
                 <small className="p-error ">{errors.username}</small>
@@ -66,6 +67,7 @@ const Login = () => {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 className={errors.password && "p-invalid"}
+                required={true}
               />
               {errors.password && (
                 <small className="p-error ">{errors.password}</small>

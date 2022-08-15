@@ -5,11 +5,14 @@ const useForm = (initialForm, validateForm) => {
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
   const [response, setResponse] = useState(null);
-  const [errorsLength, setErrorsLength] = useState(1)
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setForm({ ...form, [name]: value });
+
+    setForm({
+      ...form,
+      [name]: value,
+    });
   };
 
   const handleBlur = (e) => {
@@ -20,23 +23,18 @@ const useForm = (initialForm, validateForm) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors(validateForm(form));
-    if (errorsLength === 0) {
+
+    if (Object.keys(validateForm(form)).length === 0) {
+      alert("Enviando Formulario");
       setLoading(true);
-      alert("enviando formulario");
-      setLoading(false);
     } else {
       return;
     }
   };
 
-  useEffect(() => {
-    console.log(Object.keys(errors).length)
-    setErrorsLength(Object.keys(errors).length)
-  }, [errors])
-  
-
   return {
     form,
+    setForm,
     errors,
     loading,
     response,
